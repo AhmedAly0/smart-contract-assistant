@@ -43,7 +43,7 @@ pip install -r requirements.txt
 
 ```bash
 cp .env.example .env
-# Edit .env and add your NVIDIA_API_KEY
+# Edit .env and add your GOOGLE_API_KEY
 ```
 
 ### 3. Start the backend
@@ -96,8 +96,8 @@ Generates synthetic Q&A pairs, runs pairwise comparison (LLM-as-a-Judge), and re
 
 ## Tech Stack
 
-- **LLM**: `meta/llama-3.3-70b-instruct` via NVIDIA AI Endpoints
-- **Embeddings**: `nvidia/llama-3.2-nv-embedqa-1b-v2`
+- **LLM**: `gemini-2.5-flash` via Google Gemini API
+- **Embeddings**: `models/text-embedding-004` (Google)
 - **Vector Store**: FAISS (`IndexFlatL2` + `InMemoryDocstore`)
 - **Framework**: LangChain LCEL, LangServe, FastAPI, Gradio
 - **Document Processing**: PyMuPDF, python-docx

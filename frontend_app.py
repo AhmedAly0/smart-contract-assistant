@@ -193,7 +193,7 @@ def build_ui():
             "# 📄 Smart Contract Summary & Q&A Assistant\n"
             "Upload contracts, insurance policies, or reports and chat with them. "
             "Powered by RAG with source citations and semantic guardrails.\n\n"
-            "*NVIDIA DLI Course Capstone Project — Building RAG Agents using LLMs*"
+            "*DLI Course Capstone Project — Building RAG Agents using LLMs (Gemini 2.5 Flash)*"
         )
 
         with gr.Tabs():

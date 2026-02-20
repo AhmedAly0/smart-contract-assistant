@@ -60,7 +60,7 @@ def generate_synthetic_qa(
 
     Args:
         docs: List of document chunks.
-        llm: The ChatNVIDIA LLM instance.
+        llm: The ChatGoogleGenerativeAI LLM instance.
         n: Number of pairs to generate.
 
     Returns:

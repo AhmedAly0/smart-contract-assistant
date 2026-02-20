@@ -9,7 +9,7 @@ from typing import Optional
 import faiss
 from langchain_community.vectorstores import FAISS
 from langchain_community.docstore.in_memory import InMemoryDocstore
-from langchain_nvidia_ai_endpoints import NVIDIAEmbeddings
+from langchain_google_genai import GoogleGenerativeAIEmbeddings
 from langchain.schema import Document
 
 from config import VECTORSTORE_DIR
@@ -18,7 +18,7 @@ from embedding_utils import get_embedding_dims
 
 # ─── FAISS Factory ───────────────────────────────────────────────────────────
 
-def default_FAISS(embedder: NVIDIAEmbeddings) -> FAISS:
+def default_FAISS(embedder: GoogleGenerativeAIEmbeddings) -> FAISS:
     """Create an empty FAISS vector store.
     Pattern: Notebook 07 — IndexFlatL2 + InMemoryDocstore factory.
 
@@ -39,7 +39,7 @@ def default_FAISS(embedder: NVIDIAEmbeddings) -> FAISS:
 
 def build_vectorstore(
     documents: list[Document],
-    embedder: NVIDIAEmbeddings
+    embedder: GoogleGenerativeAIEmbeddings
 ) -> FAISS:
     """Build a FAISS vector store from a list of LangChain Documents.
     Pattern: Notebook 07 — FAISS.from_documents().
@@ -79,7 +79,7 @@ def save_vectorstore(
 
 
 def load_vectorstore(
-    embedder: NVIDIAEmbeddings,
+    embedder: GoogleGenerativeAIEmbeddings,
     name: str = "docstore",
     directory: str = VECTORSTORE_DIR,
 ) -> Optional[FAISS]:
@@ -98,7 +98,7 @@ def load_vectorstore(
 
 
 def get_or_create_vectorstore(
-    embedder: NVIDIAEmbeddings,
+    embedder: GoogleGenerativeAIEmbeddings,
     name: str = "docstore",
 ) -> FAISS:
     """Load an existing vector store or create an empty one.
@@ -115,7 +115,7 @@ def get_or_create_vectorstore(
 
 def aggregate_vstores(
     vectorstores: list[FAISS],
-    embedder: NVIDIAEmbeddings,
+    embedder: GoogleGenerativeAIEmbeddings,
 ) -> FAISS:
     """Merge multiple FAISS vector stores into one.
     Pattern: Notebook 07 — aggregate_vstores using merge_from.

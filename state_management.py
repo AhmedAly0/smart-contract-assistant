@@ -30,7 +30,7 @@ def RExtract(pydantic_class, llm, prompt):
 
     Args:
         pydantic_class: The Pydantic BaseModel class to extract.
-        llm: The ChatNVIDIA LLM instance.
+        llm: The ChatGoogleGenerativeAI LLM instance.
         prompt: ChatPromptTemplate with {format_instructions} placeholder.
 
     Returns:

@@ -1,32 +1,32 @@
 # Core LLM / LangChain
-langchain>=0.3.0
-langchain-core>=0.3.0
-langchain-community>=0.3.0
-langchain-nvidia-ai-endpoints>=0.3.0
+langchain==0.3.25
+langchain-core==0.3.61
+langchain-community==0.3.24
+langchain-google-genai==2.1.4
 
 # Serving
-langserve[all]>=0.3.0
-fastapi>=0.110.0
-uvicorn[standard]>=0.29.0
-sse-starlette>=2.0.0
+langserve==0.3.1
+fastapi==0.115.12
+uvicorn==0.34.2
+sse-starlette==2.2.1
 
 # Frontend
-gradio>=4.0.0
+gradio==5.29.0
 
 # Vector Store
-faiss-cpu>=1.7.4
+faiss-cpu==1.11.0
 
 # Document Processing
-pymupdf>=1.24.0
-python-docx>=1.1.0
+pymupdf==1.25.5
+python-docx==1.1.2
 
 # Data / ML Utilities
-numpy>=1.26.0
-scikit-learn>=1.4.0
-pydantic>=2.6.0
+numpy==2.2.6
+scikit-learn==1.6.1
+pydantic==2.11.3
 
 # Environment / Utilities
-python-dotenv>=1.0.0
-python-multipart>=0.0.9
-rich>=13.7.0
-httpx>=0.27.0
+python-dotenv==1.1.0
+python-multipart==0.0.20
+rich==14.0.0
+httpx==0.28.1

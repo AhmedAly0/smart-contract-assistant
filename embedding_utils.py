@@ -1,16 +1,15 @@
 """
 Embedding model setup and semantic guardrails.
-Pattern: Notebook 06 (NVIDIAEmbeddings with query/document pathways)
+Pattern: Notebook 06 (Embeddings with query/document pathways)
 Pattern: Notebook 06 (Semantic guardrails — cosine similarity filtering)
 """
 
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
-from langchain_nvidia_ai_endpoints import NVIDIAEmbeddings
+from langchain_google_genai import GoogleGenerativeAIEmbeddings
 
 from config import (
-    NVIDIA_API_KEY,
-    NVIDIA_BASE_URL,
+    GOOGLE_API_KEY,
     EMBEDDING_MODEL,
     GUARDRAIL_THRESHOLD,
     SAFE_TOPICS,
@@ -19,23 +18,22 @@ from config import (
 
 # ─── Embedder Factory ───────────────────────────────────────────────────────
 
-def get_embedder() -> NVIDIAEmbeddings:
-    """Create and return an NVIDIAEmbeddings instance.
-    Pattern: Notebook 06 — nvidia/llama-3.2-nv-embedqa-1b-v2 with dual pathways.
+def get_embedder() -> GoogleGenerativeAIEmbeddings:
+    """Create and return a GoogleGenerativeAIEmbeddings instance.
+    Pattern: Notebook 06 — embedding model with dual pathways.
 
     The embedder supports two modes:
     - embed_query(): for short-form queries (questions)
     - embed_documents(): for long-form document passages (batch)
     """
-    embedder = NVIDIAEmbeddings(
+    embedder = GoogleGenerativeAIEmbeddings(
         model=EMBEDDING_MODEL,
-        nvidia_api_key=NVIDIA_API_KEY,
-        base_url=f"{NVIDIA_BASE_URL}",
+        google_api_key=GOOGLE_API_KEY,
     )
     return embedder
 
 
-def get_embedding_dims(embedder: NVIDIAEmbeddings) -> int:
+def get_embedding_dims(embedder: GoogleGenerativeAIEmbeddings) -> int:
     """Get the embedding dimensionality for FAISS index initialization.
     Pattern: Notebook 07 — needed for IndexFlatL2 initialization.
     """
@@ -56,7 +54,7 @@ class SemanticGuardrail:
 
     def __init__(
         self,
-        embedder: NVIDIAEmbeddings,
+        embedder: GoogleGenerativeAIEmbeddings,
         safe_topics: list[str] = SAFE_TOPICS,
         threshold: float = GUARDRAIL_THRESHOLD,
     ):

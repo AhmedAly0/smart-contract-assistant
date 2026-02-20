@@ -107,7 +107,7 @@ app = FastAPI(
     description=(
         "RAG-powered contract Q&A assistant. "
         "Upload documents and ask questions with source citations. "
-        "Built as a capstone project for NVIDIA DLI 'Building RAG Agents using LLMs'."
+        "Built as a capstone project for the DLI 'Building RAG Agents using LLMs' course."
     ),
     lifespan=lifespan,
 )

@@ -1,6 +1,6 @@
 """
 LCEL chain construction for the RAG pipeline.
-Pattern: Notebook 02 (ChatNVIDIA LLM instantiation)
+Pattern: Notebook 02 (ChatGoogleGenerativeAI LLM instantiation)
 Pattern: Notebook 03 (prompt | llm | StrOutputParser)
 Pattern: Notebook 04 (RunnableAssign for running state)
 Pattern: Notebook 05 (RSummarizer for progressive document summarization)
@@ -14,24 +14,23 @@ from langchain.schema.runnable import RunnableLambda
 from langchain.schema.runnable.passthrough import RunnableAssign
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
-from langchain_nvidia_ai_endpoints import ChatNVIDIA
+from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.document_transformers import LongContextReorder
 from langchain_community.vectorstores import FAISS
 
-from config import NVIDIA_API_KEY, NVIDIA_BASE_URL, LLM_MODEL
+from config import GOOGLE_API_KEY, LLM_MODEL
 from utils import docs2str
 
 
 # ─── LLM Factory ─────────────────────────────────────────────────────────────
 
-def build_llm(model: str = LLM_MODEL, **kwargs) -> ChatNVIDIA:
-    """Create a ChatNVIDIA LLM instance.
-    Pattern: Notebook 02 — ChatNVIDIA as highest-abstraction LLM connector.
+def build_llm(model: str = LLM_MODEL, **kwargs) -> ChatGoogleGenerativeAI:
+    """Create a ChatGoogleGenerativeAI LLM instance.
+    Pattern: Notebook 02 — ChatGoogleGenerativeAI as highest-abstraction LLM connector.
     """
-    return ChatNVIDIA(
+    return ChatGoogleGenerativeAI(
         model=model,
-        nvidia_api_key=NVIDIA_API_KEY,
-        base_url=f"{NVIDIA_BASE_URL}",
+        google_api_key=GOOGLE_API_KEY,
         **kwargs,
     )
 

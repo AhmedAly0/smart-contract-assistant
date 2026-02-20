@@ -9,16 +9,15 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-# ─── NVIDIA / LLM Settings ───────────────────────────────────────────────────
+# ─── Google Gemini / LLM Settings ────────────────────────────────────────────
 
-NVIDIA_API_KEY = os.environ.get("NVIDIA_API_KEY", "")
-NVIDIA_BASE_URL = os.environ.get("NVIDIA_BASE_URL", "https://integrate.api.nvidia.com/v1")
+GOOGLE_API_KEY = os.environ.get("GOOGLE_API_KEY", "")
 
-# LLM model — course default: meta/llama-3.3-70b-instruct
-LLM_MODEL = os.environ.get("LLM_MODEL", "meta/llama-3.3-70b-instruct")
+# LLM model — Gemini 2.5 Flash
+LLM_MODEL = os.environ.get("LLM_MODEL", "gemini-2.5-flash")
 
-# Embedding model — course default from Notebook 06
-EMBEDDING_MODEL = os.environ.get("EMBEDDING_MODEL", "nvidia/llama-3.2-nv-embedqa-1b-v2")
+# Embedding model — Google's text-embedding-004
+EMBEDDING_MODEL = os.environ.get("EMBEDDING_MODEL", "models/text-embedding-004")
 
 # ─── Document Processing Settings ────────────────────────────────────────────
 
