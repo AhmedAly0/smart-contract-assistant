@@ -16,8 +16,8 @@ GOOGLE_API_KEY = os.environ.get("GOOGLE_API_KEY", "")
 # LLM model — Gemini 2.5 Flash
 LLM_MODEL = os.environ.get("LLM_MODEL", "gemini-2.5-flash")
 
-# Embedding model — Google's text-embedding-004
-EMBEDDING_MODEL = os.environ.get("EMBEDDING_MODEL", "models/text-embedding-004")
+# Embedding model — Google's gemini-embedding-001
+EMBEDDING_MODEL = os.environ.get("EMBEDDING_MODEL", "models/gemini-embedding-001")
 
 # ─── Document Processing Settings ────────────────────────────────────────────
 

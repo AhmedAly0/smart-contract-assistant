@@ -15,7 +15,7 @@ from langchain.schema.runnable.passthrough import RunnableAssign
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from langchain_google_genai import ChatGoogleGenerativeAI
-from langchain.document_transformers import LongContextReorder
+from langchain_community.document_transformers import LongContextReorder
 from langchain_community.vectorstores import FAISS
 
 from config import GOOGLE_API_KEY, LLM_MODEL

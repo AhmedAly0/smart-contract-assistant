@@ -11,7 +11,7 @@ import gradio as gr
 
 from langserve import RemoteRunnable
 from langchain_core.output_parsers import StrOutputParser
-from langchain.document_transformers import LongContextReorder
+from langchain_community.document_transformers import LongContextReorder
 from langchain.schema.runnable import RunnableLambda
 from langchain.schema.runnable.passthrough import RunnableAssign
 from operator import itemgetter
@@ -231,9 +231,6 @@ def build_ui():
                         "What happens upon termination?",
                         "Summarize the main obligations.",
                     ],
-                    retry_btn="🔄 Retry",
-                    undo_btn="↩️ Undo",
-                    clear_btn="🗑️ Clear",
                 )
 
             # ─── Summary Tab ─────────────────────────────────────────
@@ -261,9 +258,6 @@ def build_ui():
                 )
                 gr.ChatInterface(
                     fn=basic_chat_stream,
-                    retry_btn="🔄 Retry",
-                    undo_btn="↩️ Undo",
-                    clear_btn="🗑️ Clear",
                 )
 
     return demo

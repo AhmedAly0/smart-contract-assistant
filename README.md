@@ -97,7 +97,7 @@ Generates synthetic Q&A pairs, runs pairwise comparison (LLM-as-a-Judge), and re
 ## Tech Stack
 
 - **LLM**: `gemini-2.5-flash` via Google Gemini API
-- **Embeddings**: `models/text-embedding-004` (Google)
+- **Embeddings**: `models/text-embedding-005` (Google)
 - **Vector Store**: FAISS (`IndexFlatL2` + `InMemoryDocstore`)
 - **Framework**: LangChain LCEL, LangServe, FastAPI, Gradio
 - **Document Processing**: PyMuPDF, python-docx
