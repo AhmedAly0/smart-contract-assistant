@@ -1,33 +1,15 @@
 """
 Gradio frontend application.
-Pattern: Notebook 03 (gr.ChatInterface with streaming generator)
-Pattern: Notebook 09 (RemoteRunnable consuming LangServe endpoints)
-Pattern: Notebook 03 (frontend_server.py composing retrieval + generation)
+Connects to the FastAPI backend via REST endpoints.
 """
 
 import os
 import requests
 import gradio as gr
 
-from langserve import RemoteRunnable
-from langchain_core.output_parsers import StrOutputParser
-from langchain_community.document_transformers import LongContextReorder
-from langchain.schema.runnable import RunnableLambda
-from langchain.schema.runnable.passthrough import RunnableAssign
-from operator import itemgetter
-
 from config import SERVER_HOST, SERVER_PORT
-from utils import docs2str
-
-# ─── Remote Chain Connections ────────────────────────────────────────────────
-# Pattern: Notebook 09 — RemoteRunnable connects to LangServe endpoints
 
 SERVER_URL = f"http://{SERVER_HOST}:{SERVER_PORT}"
-
-chains_dict = {
-    "basic": RemoteRunnable(f"{SERVER_URL}/basic_chat/"),
-    "generator": RemoteRunnable(f"{SERVER_URL}/generator/"),
-}
 
 
 # ─── Chat Handler ───────────────────────────────────────────────────────────
@@ -70,22 +52,6 @@ def chat_stream(message: str, history: list):
             "Please ensure server_app.py is running:\n"
             "```\npython server_app.py\n```"
         )
-    except Exception as e:
-        yield f"Error: {str(e)}"
-
-
-def basic_chat_stream(message: str, history: list):
-    """Direct LLM chat without RAG — uses /basic_chat endpoint.
-    Pattern: Notebook 03 — streaming generator with RemoteRunnable.
-    """
-    try:
-        buffer = ""
-        for token in chains_dict["basic"].stream({"input": message}):
-            if isinstance(token, str):
-                buffer += token
-            else:
-                buffer += str(token)
-            yield buffer
     except Exception as e:
         yield f"Error: {str(e)}"
 
@@ -248,16 +214,6 @@ def build_ui():
                     fn=summarize_document,
                     inputs=[doc_name_input],
                     outputs=[summary_output],
-                )
-
-            # ─── Direct Chat Tab ─────────────────────────────────────
-            with gr.Tab("🤖 Direct LLM Chat"):
-                gr.Markdown(
-                    "Chat directly with the LLM without document retrieval. "
-                    "Useful for general questions."
-                )
-                gr.ChatInterface(
-                    fn=basic_chat_stream,
                 )
 
     return demo

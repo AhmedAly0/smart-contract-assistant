@@ -1,0 +1,155 @@
+SERVICE AGREEMENT
+
+This Service Agreement ("Agreement") is entered into as of January 15, 2026, by and between:
+
+1. TechVista Solutions Inc., a corporation organized under the laws of the State of California, with its principal office at 450 Innovation Drive, San Jose, CA 95134 ("Service Provider")
+
+2. GreenLeaf Manufacturing Co., a corporation organized under the laws of the State of Texas, with its principal office at 1200 Industrial Boulevard, Austin, TX 78701 ("Client")
+
+Collectively referred to as the "Parties."
+
+ARTICLE 1: SCOPE OF SERVICES
+
+1.1 The Service Provider agrees to provide the following services to the Client ("Services"):
+    (a) Development and deployment of a cloud-based Enterprise Resource Planning (ERP) system customized to the Client's manufacturing operations.
+    (b) Data migration from the Client's existing legacy systems to the new ERP platform.
+    (c) Integration with the Client's existing supply chain management and accounting software.
+    (d) User training for up to 150 employees across three facility locations.
+    (e) Post-deployment technical support and system maintenance.
+
+1.2 The detailed technical specifications, project milestones, and deliverables are outlined in Exhibit A, attached hereto and incorporated by reference.
+
+1.3 Any modifications to the scope of Services shall require a written Change Order signed by authorized representatives of both Parties.
+
+ARTICLE 2: TERM AND TIMELINE
+
+2.1 This Agreement shall commence on January 15, 2026, and shall continue until the completion of all Services, estimated to be December 31, 2026 ("Initial Term").
+
+2.2 The project shall be executed in the following phases:
+    Phase 1 — Requirements Analysis and System Design: January 15 – March 31, 2026
+    Phase 2 — Development and Customization: April 1 – July 31, 2026
+    Phase 3 — Testing and Quality Assurance: August 1 – September 30, 2026
+    Phase 4 — Deployment and Data Migration: October 1 – November 15, 2026
+    Phase 5 — Training and Go-Live Support: November 16 – December 31, 2026
+
+2.3 The Service Provider shall provide the Client with bi-weekly progress reports during each phase.
+
+ARTICLE 3: PAYMENT TERMS
+
+3.1 The total fee for the Services shall be Seven Hundred Fifty Thousand United States Dollars ($750,000.00), payable as follows:
+    (a) 15% ($112,500.00) upon execution of this Agreement as a non-refundable deposit.
+    (b) 20% ($150,000.00) upon completion of Phase 1.
+    (c) 25% ($187,500.00) upon completion of Phase 2.
+    (d) 20% ($150,000.00) upon completion of Phase 3.
+    (e) 15% ($112,500.00) upon completion of Phase 4.
+    (f) 5% ($37,500.00) upon final acceptance and completion of Phase 5.
+
+3.2 All invoices shall be payable within thirty (30) days of receipt. Late payments shall accrue interest at a rate of 1.5% per month.
+
+3.3 The Client shall reimburse the Service Provider for pre-approved travel expenses, not to exceed $25,000.00 in aggregate, upon submission of receipts.
+
+3.4 All amounts are exclusive of applicable taxes, which shall be the responsibility of the Client.
+
+ARTICLE 4: INTELLECTUAL PROPERTY
+
+4.1 All custom software, code, and configurations developed specifically for the Client under this Agreement ("Custom Work") shall be the exclusive property of the Client upon full payment.
+
+4.2 The Service Provider retains all rights to its pre-existing tools, frameworks, libraries, and methodologies ("Provider IP") used in the performance of Services. The Client is granted a perpetual, non-exclusive, royalty-free license to use Provider IP solely as embedded in the delivered system.
+
+4.3 Neither Party shall use the other Party's trademarks, logos, or trade names without prior written consent.
+
+ARTICLE 5: CONFIDENTIALITY
+
+5.1 Each Party agrees to maintain the confidentiality of all proprietary information, trade secrets, business strategies, financial data, technical specifications, and customer data disclosed by the other Party ("Confidential Information").
+
+5.2 Confidential Information shall not include information that:
+    (a) Is or becomes publicly available through no fault of the receiving Party;
+    (b) Was known to the receiving Party prior to disclosure;
+    (c) Is independently developed by the receiving Party without use of Confidential Information;
+    (d) Is disclosed with the prior written consent of the disclosing Party.
+
+5.3 The obligations of confidentiality shall survive the termination of this Agreement for a period of five (5) years.
+
+5.4 The Service Provider shall comply with all applicable data protection laws, including but not limited to the California Consumer Privacy Act (CCPA) and any applicable state or federal data privacy regulations.
+
+ARTICLE 6: WARRANTIES AND REPRESENTATIONS
+
+6.1 The Service Provider warrants that:
+    (a) All Services will be performed in a professional and workmanlike manner consistent with industry standards.
+    (b) The delivered system will conform to the specifications outlined in Exhibit A for a period of twelve (12) months following final acceptance ("Warranty Period").
+    (c) The Service Provider has the legal right and authority to enter into this Agreement and perform the Services.
+
+6.2 The Client warrants that:
+    (a) It will provide timely access to necessary systems, data, personnel, and facilities.
+    (b) It has the authority to enter into this Agreement.
+    (c) All data provided to the Service Provider is accurate and the Client has the legal right to share such data.
+
+6.3 EXCEPT AS EXPRESSLY SET FORTH IN THIS AGREEMENT, THE SERVICE PROVIDER MAKES NO OTHER WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.
+
+ARTICLE 7: LIABILITY AND INDEMNIFICATION
+
+7.1 The Service Provider's total aggregate liability under this Agreement shall not exceed the total fees paid by the Client under this Agreement.
+
+7.2 In no event shall either Party be liable for any indirect, incidental, special, consequential, or punitive damages, including loss of profits, data, or business opportunities, regardless of the theory of liability.
+
+7.3 The Service Provider shall indemnify and hold harmless the Client from any third-party claims arising from:
+    (a) Infringement of intellectual property rights by the Custom Work;
+    (b) Gross negligence or willful misconduct of the Service Provider's personnel.
+
+7.4 The Client shall indemnify and hold harmless the Service Provider from any third-party claims arising from:
+    (a) The Client's use of the delivered system in a manner not contemplated by this Agreement;
+    (b) The accuracy or legality of data provided by the Client.
+
+ARTICLE 8: TERMINATION
+
+8.1 Either Party may terminate this Agreement for cause if the other Party materially breaches any provision and fails to cure such breach within thirty (30) days of receiving written notice.
+
+8.2 The Client may terminate this Agreement for convenience upon sixty (60) days' written notice. In such case, the Client shall pay for all Services rendered through the date of termination plus a termination fee equal to 10% of the remaining unpaid balance.
+
+8.3 Upon termination, the Service Provider shall deliver all work product completed to date and shall cooperate in an orderly transition.
+
+8.4 The following provisions shall survive termination: Articles 4 (Intellectual Property), 5 (Confidentiality), 6 (Warranties—for the applicable warranty period), 7 (Liability and Indemnification), and 9 (Dispute Resolution).
+
+ARTICLE 9: DISPUTE RESOLUTION
+
+9.1 The Parties shall first attempt to resolve any dispute arising under this Agreement through good-faith negotiation between senior management representatives within thirty (30) days.
+
+9.2 If the dispute cannot be resolved through negotiation, the Parties agree to submit the dispute to binding arbitration administered by the American Arbitration Association (AAA) under its Commercial Arbitration Rules.
+
+9.3 The arbitration shall take place in San Francisco, California, and shall be conducted by a single arbitrator with expertise in technology services agreements.
+
+9.4 The prevailing Party in any arbitration or legal proceeding shall be entitled to recover its reasonable attorneys' fees and costs.
+
+ARTICLE 10: GENERAL PROVISIONS
+
+10.1 Force Majeure. Neither Party shall be liable for delays or failures in performance resulting from acts of God, natural disasters, pandemics, government actions, or other circumstances beyond the reasonable control of the affected Party.
+
+10.2 Assignment. Neither Party may assign this Agreement without the prior written consent of the other Party, except in connection with a merger, acquisition, or sale of substantially all assets.
+
+10.3 Notices. All notices under this Agreement shall be in writing and delivered by certified mail or recognized overnight courier to the addresses listed above.
+
+10.4 Entire Agreement. This Agreement, together with all Exhibits, constitutes the entire agreement between the Parties and supersedes all prior negotiations, representations, and agreements.
+
+10.5 Amendments. No amendment or modification of this Agreement shall be valid unless made in writing and signed by both Parties.
+
+10.6 Governing Law. This Agreement shall be governed by and construed in accordance with the laws of the State of California, without regard to its conflict of laws provisions.
+
+10.7 Severability. If any provision of this Agreement is found to be invalid or unenforceable, the remaining provisions shall continue in full force and effect.
+
+10.8 Waiver. The failure of either Party to enforce any provision of this Agreement shall not constitute a waiver of that Party's right to enforce that provision in the future.
+
+IN WITNESS WHEREOF, the Parties have executed this Agreement as of the date first written above.
+
+FOR TECHVISTA SOLUTIONS INC.
+
+Signature: _________________________
+Name: Sarah J. Mitchell
+Title: Chief Executive Officer
+Date: January 15, 2026
+
+FOR GREENLEAF MANUFACTURING CO.
+
+Signature: _________________________
+Name: Robert A. Chen
+Title: Vice President of Operations
+Date: January 15, 2026

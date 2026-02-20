@@ -1,35 +1,23 @@
 """
-FastAPI + LangServe server application.
-Pattern: Notebook 09 — %%writefile server_app.py with FastAPI + add_routes.
+FastAPI server application.
 
 Endpoints:
-    /basic_chat  — Simple LLM chat (no RAG)
-    /retriever   — Document retrieval (returns documents)
-    /generator   — Generation from context (returns string)
-    /upload      — File upload + ingestion (REST, not LangServe)
-    /summarize   — Document summarization (REST)
+    /upload      — File upload + ingestion
+    /ask         — RAG Q&A with guardrails
+    /summarize   — Document summarization
 
 Run: python server_app.py
 """
 
 import os
-import shutil
 from contextlib import asynccontextmanager
 from typing import Optional
 
 from fastapi import FastAPI, File, UploadFile, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from langserve import add_routes
 
-from config import SERVER_HOST, SERVER_PORT
-from chains import (
-    build_llm,
-    build_basic_chat_chain,
-    build_retrieval_chain,
-    build_generator_chain,
-    build_rag_chain,
-    build_summarizer,
-)
+from config import SERVER_HOST, SERVER_PORT, LLM_MODEL
+from chains import build_llm, build_rag_chain, build_summarizer
 from embedding_utils import get_embedder, SemanticGuardrail
 from vectorstore_utils import (
     get_or_create_vectorstore,
@@ -75,20 +63,7 @@ async def lifespan(app: FastAPI):
     guardrail = SemanticGuardrail(embedder)
     print("[Server] Semantic guardrail ready")
 
-    # ─── Register LangServe routes ─────────────────────────────────────
-    # Pattern: Notebook 09 — add_routes(app, chain, path="/endpoint")
-
-    # /basic_chat — raw LLM, no retrieval
-    basic_chain = build_basic_chat_chain(llm)
-    add_routes(app, basic_chain, path="/basic_chat")
-
-    # /generator — takes {input, context}, returns answer string
-    generator_chain = build_generator_chain(llm)
-    add_routes(app, generator_chain, path="/generator")
-
-    print("[Server] LangServe routes registered: /basic_chat, /generator")
     print(f"[Server] Ready at http://{SERVER_HOST}:{SERVER_PORT}")
-    print(f"[Server] API docs at http://{SERVER_HOST}:{SERVER_PORT}/docs")
 
     yield  # Server runs
 
@@ -257,5 +232,4 @@ async def health_check():
 
 if __name__ == "__main__":
     import uvicorn
-    from config import LLM_MODEL
     uvicorn.run(app, host=SERVER_HOST, port=SERVER_PORT)

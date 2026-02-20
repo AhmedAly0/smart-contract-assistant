@@ -1,13 +1,7 @@
 """
 LCEL chain construction for the RAG pipeline.
-Pattern: Notebook 02 (ChatGoogleGenerativeAI LLM instantiation)
-Pattern: Notebook 03 (prompt | llm | StrOutputParser)
-Pattern: Notebook 04 (RunnableAssign for running state)
-Pattern: Notebook 05 (RSummarizer for progressive document summarization)
-Pattern: Notebook 07 (retrieval chain with LongContextReorder + docs2str)
 """
 
-from functools import partial
 from operator import itemgetter
 
 from langchain.schema.runnable import RunnableLambda
@@ -37,14 +31,6 @@ def build_llm(model: str = LLM_MODEL, **kwargs) -> ChatGoogleGenerativeAI:
 
 # ─── Prompt Templates ───────────────────────────────────────────────────────
 
-BASIC_CHAT_PROMPT = ChatPromptTemplate.from_messages([
-    ("system",
-     "You are a helpful contract analysis assistant. "
-     "Answer questions clearly and concisely. "
-     "If you don't know the answer, say so honestly."),
-    ("user", "{input}"),
-])
-
 RAG_CONTEXT_PROMPT = ChatPromptTemplate.from_messages([
     ("system",
      "You are a Smart Contract Q&A Assistant. "
@@ -54,16 +40,6 @@ RAG_CONTEXT_PROMPT = ChatPromptTemplate.from_messages([
      "'I cannot find this information in the uploaded document(s).'\n\n"
      "Conversation History:\n{history}\n\n"
      "Document Context:\n{context}"),
-    ("user", "{input}"),
-])
-
-GENERATOR_PROMPT = ChatPromptTemplate.from_messages([
-    ("system",
-     "You are a contract analysis assistant. "
-     "Answer the user's question based ONLY on the provided context. "
-     "Include source citations in your answer using [Source: document name] format. "
-     "If the context doesn't contain relevant information, say so.\n\n"
-     "Context:\n{context}"),
     ("user", "{input}"),
 ])
 
@@ -77,17 +53,6 @@ SUMMARIZE_CHUNK_PROMPT = ChatPromptTemplate.from_messages([
      "{format_instructions}"),
     ("user", "New chunk to incorporate:\n{input}"),
 ])
-
-
-# ─── Basic Chat Chain ───────────────────────────────────────────────────────
-
-def build_basic_chat_chain(llm=None):
-    """Simple chat chain without RAG — for the /basic_chat endpoint.
-    Pattern: Notebook 03/09 — prompt | llm | StrOutputParser().
-    """
-    if llm is None:
-        llm = build_llm()
-    return BASIC_CHAT_PROMPT | llm | StrOutputParser()
 
 
 # ─── Retrieval Chain ─────────────────────────────────────────────────────────
@@ -126,19 +91,6 @@ def build_retrieval_chain(
         })
     )
     return retrieval_chain
-
-
-# ─── Generator Chain ─────────────────────────────────────────────────────────
-
-def build_generator_chain(llm=None):
-    """Build the generation chain that takes {input, context} and produces an answer.
-    Pattern: Notebook 09 — the /generator endpoint: prompt + LLM + parser.
-
-    This chain expects a dict with 'input' and 'context' keys.
-    """
-    if llm is None:
-        llm = build_llm()
-    return GENERATOR_PROMPT | llm | StrOutputParser()
 
 
 # ─── Full RAG Chain ──────────────────────────────────────────────────────────

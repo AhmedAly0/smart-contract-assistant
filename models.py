@@ -1,31 +1,9 @@
 """
-Pydantic models for structured data throughout the application.
-Pattern: Notebook 04 (KnowledgeBase with Field descriptors)
-Pattern: Notebook 05 (DocumentSummaryBase for progressive summarization)
+Pydantic models for structured data.
 """
 
 from typing import List, Optional
 from pydantic import BaseModel, Field
-
-
-class KnowledgeBase(BaseModel):
-    """Running knowledge base for conversation state tracking.
-    Pattern: Notebook 04 — slot-filling extraction via RExtract.
-    """
-    user_name: str = Field("unknown", description="The user's name if provided")
-    document_name: str = Field("unknown", description="Name of the uploaded document being discussed")
-    discussion_summary: str = Field(
-        "",
-        description="Running summary of what has been discussed so far"
-    )
-    key_topics: List[str] = Field(
-        default_factory=list,
-        description="Key topics/clauses that have been discussed (max 5)"
-    )
-    response: str = Field(
-        "",
-        description="The ideal response to the user's latest message"
-    )
 
 
 class DocumentSummaryBase(BaseModel):
@@ -52,17 +30,6 @@ class DocumentSummaryBase(BaseModel):
         default_factory=list,
         description="Names of parties mentioned in the document"
     )
-
-
-class ConversationState(BaseModel):
-    """Full conversation state dictionary flowing through the chain.
-    Pattern: Notebook 04 — RunnableAssign accumulates keys in running state.
-    """
-    input: str = ""
-    context: str = ""
-    history: str = ""
-    output: str = ""
-    know_base: KnowledgeBase = Field(default_factory=KnowledgeBase)
 
 
 class EvalQAPair(BaseModel):
